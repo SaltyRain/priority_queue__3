@@ -11,19 +11,23 @@
 
 #include <stdio.h>
 
+#define SIZE 20
+
 class tree
 {
 public:
     tree();
-    ~tree();
     
-    int deletemin(); //удаление минимального
+    int deleteMin(); //удаление минимального
     
-    void insert(int elem); //вставка элемента elem в дерево
+    void insert(int el); //вставка элемента elem в дерево
     void makenull();
-    void print();
+    void print() const;
 private:
-    int *arr; //массив
-    int *tail; //последний занятый или первый свободный
+    int arr[SIZE]; //массив
+    int tail; //последний занятый
+    
+    void addElem(int el); //вставка элемента в хвост
 };
+
 #endif /* tree__bunch_hpp */
