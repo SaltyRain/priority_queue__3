@@ -35,4 +35,21 @@ int main() {
     tree t;
     readTreeFromFile("tree.txt", t);
     t.print();
+    
+    t.deleteMin();
+    t.print();
+    t.deleteMin();
+    t.print();
+    t.deleteMin();
+    t.print();
+    t.deleteMin();
+    t.print();
+    t.deleteMin();
+    t.print();
+    t.deleteMin();
+    t.print();
+    
+    
+    t.makenull();
+    t.print();
 }
