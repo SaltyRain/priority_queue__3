@@ -52,17 +52,19 @@ void tree:: insert(int el)
 
 bool tree:: check_CH_U(int i) const
 {
-    return ((arr[2 * (i+1)-1] >= arr[i] || arr[2 * i -1] >= arr[i]) && 2*i -1 < tail && i < tail);
+    return ((arr[2*i +1] < arr[i] || arr[2*i +2] < arr[i]) && 2*i +2 < tail && i < tail);
 }
 
 bool tree:: checkSwapLeft(int i) const
 {
-    return (arr[2*i-1] < arr[i] && arr[2*(i+1)-1] >= arr[2*i-1]);
+    return (arr[2*i+1] < arr[i] && arr[2*i+2] >= arr[2*i+1]);
+    //если левый сын больше родителя и правый брат больше или равен левому сыну
 }
 
 bool tree:: checkSwapRight(int i) const
 {
-    return (arr[2*(i+1)-1] < arr[i] && arr[2*(i+1)-1] < arr[2*i-1]);
+    return (arr[2*i+2] < arr[i] && arr[2*i+2] < arr[2*i+1]);
+    //если правый брат меньше родителя и правый брат меньше левого сына
 }
 
 
@@ -89,13 +91,13 @@ int tree:: deleteMin()
             {
                 if (checkSwapLeft(i))
                 {
-                    swapElems(i, 2*i);
-                    i = 2*i;
+                    swapElems(i, 2*i+1);
+                    i = 2*i +1;
                 }
                 if (checkSwapRight(i))
                 {
-                    swapElems(i, 2*i + 1);
-                    i = 2*i + 1;
+                    swapElems(i, 2*i + 2);
+                    i = 2*i + 2;
                 }
             }
             cout << "min = " << min << endl;
