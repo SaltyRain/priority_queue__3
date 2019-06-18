@@ -40,10 +40,6 @@ void tree:: insert(int el)
         //смещения
         while (arr[i] <= arr[i/2-1] && i != 0) //пока узел меньше родителя и пока узел не стал корнем
         {
-            //вынести в отдельную ф-ю
-//            int temp = arr[i];
-//            arr[i] = arr[i/2-1];
-//            arr[i/2-1] = temp;
             swapElems(i, i/2-1);
             i = i/2-1;
         }
@@ -53,6 +49,7 @@ void tree:: insert(int el)
 bool tree:: check_CH_U(int i) const
 {
     return ((arr[2*i +1] < arr[i] || arr[2*i +2] < arr[i]) && 2*i +2 < tail && i < tail);
+    // левый сын меньше родителя или правый брат меньше родителя и родитель меньше последнего занятого и правый брат меньше последнего занятого
 }
 
 bool tree:: checkSwapLeft(int i) const
